@@ -20,39 +20,38 @@ const NotePage = () => {
 
     let getNote = async()=>{
         if(id==='new') return
-        let response = await fetch(`http://localhost:8000/notes/${id}`)
+        let response = await fetch(`/api/notes/${id}`)
         let data = await response.json()
         setNote(data)
     }
 
     let createNote = async()=>{
-        await fetch(`http://localhost:8000/notes/`,{
+        await fetch(`/api/notes/create`,{
             method: 'POST',
             headers:{
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({...note,'updated':new Date()})
+            body: JSON.stringify(note)
         })
 
     }
 
     let updateNote = async()=>{
-        await fetch(`http://localhost:8000/notes/${id}`,{
+        await fetch(`/api/notes/${id}/update`,{
             method:'PUT',
             headers:{
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({...note, 'updated': new Date()})
+            body: JSON.stringify(note)
         })
     }
 
     let deleteNote = async()=>{
-        await fetch(`http://localhost:8000/notes/${id}`,{
+        await fetch(`/api/notes/${id}/delete`,{
             method: 'DELETE',
             headers:{
                 'Content-Type':'application/json'
-            },
-            body: JSON.stringify(note)    
+            } 
         })
         navigate('/')
     }
@@ -81,9 +80,11 @@ const NotePage = () => {
                 </Link>
             </h3>
             {id!=='new'?(
-            <button onClick={deleteNote}>Delete</button>
-            ):
-            <button onClick={handleSubmit}>Done</button>}
+                <button onClick={deleteNote}>Delete</button>
+            ): (
+                <button onClick={handleSubmit}>Done</button>
+            )
+            }
         </div>
         <textarea onChange={(e)=>{setNote({...note,'body':e.target.value})}} value={note?.body}></textarea>
     </div>
