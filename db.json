@@ -1,0 +1,25 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "body": "Todays Agenda\n\n- Walk Dog\n- Feed fish\n- Play basketball\n- Eat a salad",
+      "updated": "2023-07-08T19:12:15.848Z",
+      "created": "2021-07-13T21:54:16.235392Z"
+    },
+    {
+      "body": "Sliding Window\nTwo Pointers\nFast and slow",
+      "updated": "2023-07-08T19:12:17.831Z",
+      "id": 3
+    },
+    {
+      "body": "Dp\nGraphs\nTrees",
+      "updated": "2023-07-08T19:12:19.608Z",
+      "id": 4
+    },
+    {
+      "body": "Linked List\nArrays\nString",
+      "updated": "2023-07-08T19:02:40.753Z",
+      "id": 5
+    }
+  ]
+}
